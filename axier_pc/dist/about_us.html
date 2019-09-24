@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="about_us">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item on">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="on" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <template id="page" type="text/html">
+            <div class="page about_us">
+                <div class="show">
+                    <img data-i18n="showSrc" src="./static/images/show1.jpg" width="100%">
+                </div>
+                <div class="title" data-i18n="title">认识埃西尔</div>
+                <div class="introduction">
+                    <!-- <img src="./static/images/about_img1.jpg" width="800"> -->
+                    <video data-i18n="video" src="" poster="" controls="controls" width="800"></video>
+                    <p data-i18n="introduction[0]">深圳市埃西尔电子有限公司成立于2003年，一直致力于为客户提供最优质的PCBA智能制造相关服务。凭借专业的技术团队及优秀的服务品质，公司一直处于高速发展的状态并且在行业中渐有影响力。业务遍及中国、美国、墨西哥、日本、印度、越南、泰国、马来西亚、新加坡等国家。</p>
+                    <p data-i18n="introduction[1]">公司现阶段拥有自动化销售、非标自动化、激光加工研发、智能嵌入式工厂、设备销售租赁、贴片机维修保养改造等业务。立志成为PCBA全球供应链综合服务商，为国内外客户提供最专业的服务，打造PCBA智能制造全球一站式服务平台。</p>
+                    <p data-i18n="introduction[2]">公司提倡诚信专业、积极主动、灵活创新，员工团结友爱，共同奋斗，为公司的高速发展提供了源源不断的能量。</p>
+                    <p data-i18n="introduction[3]">2017年，在埃西尔人的共同努力下，公司各事业部各司其职，攻克了大产能镭雕、大产能分板、整厂装配等专案，解决了客户的棘手问题，获得了客户的信任！相信在未来的日子里，埃西尔人定将砥砺前行，为客户和社会作出更大的贡献！</p>
+                </div>
+                <!-- <div class="cart-box">
+        <div class="cart">
+          <a href="business.html">
+            <img data-i18n="cartListSrc[0]" src="./static/images/1.png" width="100%" height="100%">
+          </a>
+          <a href="elegant_demeanour.html">
+            <img data-i18n="cartListSrc[1]" src="./static/images/2.png" width="100%" height="100%">
+          </a>
+          <a href="honor.html">
+            <img data-i18n="cartListSrc[2]" src="./static/images/3.png" width="100%" height="100%">
+          </a>
+          <a href="public_welfare.html">
+            <img data-i18n="cartListSrc[3]" src="./static/images/4.png" width="100%" height="100%">
+          </a>
+        </div>
+      </div> -->
+            </div>
+        </template>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="on" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script>
+    $(function() {})
+</script>

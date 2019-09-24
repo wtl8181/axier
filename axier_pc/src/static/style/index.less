@@ -1,0 +1,129 @@
+.one{
+  background:url('../images/index-img1.jpg') no-repeat;
+  background-size:cover;
+}
+.two{
+  background:url('../images/index-img2.jpg') no-repeat;
+  background-size:cover;
+}
+.three{
+  background:url('../images/index-img3.jpg') no-repeat;
+  background-size:cover;
+}
+.section{
+  position: relative;
+  .down{
+    position: absolute;
+    left: 50%;
+    bottom: 30px;
+    width: 18px;
+    height: 16px;
+    margin-left: -9px;
+    background:url("../images/down.png") no-repeat;
+    background-size:100% 100%;
+  }
+}
+
+.show{
+  position: relative;
+  margin-left: 450px;
+  color:#0079c3;
+  .product{
+    position: absolute;
+    top: -64px;
+    left: -240px;
+    width: 200px;
+  }
+  .title{
+    font-size: 26px;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  .describe{
+    font-size: 20px;
+  }
+  .bar{
+    width: 90px;
+    height: 6px;
+    background: url(../images/bar.png) no-repeat;
+    background-size: 100% 100%;
+    margin-top: 10px;
+  }
+  a{
+    display: inline-block;
+    width:160px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+    color:#fff;
+    margin-top: 60px;
+    margin-right: 40px;
+    background-color:#0079c3;
+    background:linear-gradient(to bottom right,#0079c3,#469df2);
+    border-radius: 4px;
+    transition:transform .2s;
+    &:hover{
+      transform: scale(1.08);
+    }
+  }
+}
+
+.two{
+  .show{
+    margin-left: 0;
+    .m-view{
+      width:728px;
+    }
+  }
+  a{
+    width: 200px;
+    height: 100px;
+    vertical-align: top;
+    line-height: 1.8;
+    padding-top: 20px;
+    transition:transform .2s;
+    &:hover{
+      transform: scale(1.08);
+    }
+    .name{
+      font-size: 20px;
+    }
+    .eg-name{
+      color: #bcbcbd;
+    }
+  }
+}
+
+.three{
+  .product{
+    position: absolute;
+    top: 140px;
+    left: initial;
+    right: 0;
+    width: 200px;
+  }
+  .show{
+    margin-left: 0;
+    .m-view{
+      position: relative;
+      width:728px;
+    }
+  }
+
+  ul{
+    margin-top: 90px;
+    li{
+      font-size: 18px;
+      margin: 14px 0;
+      text-indent: 14px;
+      span{
+        display: block;
+        width:18px;
+        height:18px;
+        margin-top: 2px;
+        background-color:#0079c3;
+        float:left;
+      }
+    }
+  }
+}

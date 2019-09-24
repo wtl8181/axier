@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="join_us">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item ">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item on">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <template id="page" type="text/html">
+            <div class="page join_us">
+                <div class="show">
+                    <img data-i18n="showSrc" src="./static/images/join_us.jpg" width="100%">
+                </div>
+                <div class="title" data-i18n="title">加入我们</div>
+                <div class="join_form clearfix">
+                    <form class="form_list">
+                        <div class="form_item">
+                            <label>姓名：</label>
+                            <input name="name" type="text" placeholder="请输入您的姓名" />
+                        </div>
+                        <div class="form_item">
+                            <label>邮箱：</label>
+                            <input name="email" type="text" placeholder="请输入您的邮箱" />
+                        </div>
+                        <div class="form_item">
+                            <label>电话：</label>
+                            <input name="phone" type="number" placeholder="请输入您的电话" />
+                        </div>
+                        <div class="form_item">
+                            <label>申请职位：</label>
+                            <input name="position" type="text" placeholder="请输入您的申请职位" />
+                        </div>
+                        <div class="form_item" style="width:99%;">
+                            <label>个人简介：</label>
+                            <textarea name="introduction" placeholder="请输入您的个人简介"></textarea>
+                        </div>
+                        <div class="fl">
+                            <p data-i18n="introduction.p1">深圳市埃西尔电子有限公司</p>
+                            <p data-i18n="introduction.p2">地址：深圳市宝安区西乡街道固戍华丰第一科技园A栋</p>
+                        </div>
+                        <div class="send_btn"></div>
+                    </form>
+                    <div class="success_box">
+                        <img src="./static/images/success_box.jpg" width="100%">
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="on" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script>
+    $(function() {
+        $('.form_list').validate({
+            rules: {
+                name: 'required',
+                email: 'required',
+                phone: 'required',
+                position: 'required',
+                introduction: 'required'
+            },
+            messages: {
+                name: '姓名不能为空',
+                email: '邮箱不能为空',
+                phone: '电话不能为空',
+                position: '申请职位不能为空',
+                introduction: '个人简介不能为空'
+            },
+            onfocusout: function(element) {
+                $(element).valid()
+            },
+            onkeyup: false,
+            errorPlacement: function(error, element) {
+                error.appendTo(element.parent());
+            }
+        })
+        $('.send_btn').on('click', function() {
+            if ($('.form_list').valid()) {
+                var name = $("input[name='name']").val(),
+                    email = $("input[name='email']").val(),
+                    phone = $("input[name='phone']").val(),
+                    position = $("input[name='position']").val(),
+                    introduction = $("textarea[name='introduction']").val()
+                api.addJob(name, email, phone, position, introduction, function(data) {
+                    if (data.code == 0) {
+                        $(".form_list").hide();
+                        $(".join_form").height(640)
+                        $(".success_box").show();
+                    }
+                })
+            }
+        })
+    })
+</script>

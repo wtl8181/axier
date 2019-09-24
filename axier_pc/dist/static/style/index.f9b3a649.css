@@ -1,0 +1,136 @@
+.one {
+  background: url(../images/index-img1.jpg?v=MG8I%2BBYWAv%2FRwLM5ae3q3g%3D%3D) no-repeat;
+  background-size: cover;
+}
+.two {
+  background: url(../images/index-img2.jpg?v=PEubr%2BYD6bQu%2F%2FMvSFwduA%3D%3D) no-repeat;
+  background-size: cover;
+}
+.three {
+  background: url(../images/index-img3.jpg?v=ROt0yBKoQIWsgbQ09U4XPQ%3D%3D) no-repeat;
+  background-size: cover;
+}
+.section {
+  position: relative;
+}
+.section .down {
+  position: absolute;
+  left: 50%;
+  bottom: 30px;
+  width: 18px;
+  height: 16px;
+  margin-left: -9px;
+  background: url(../images/down.png?v=xcvIbl5lZ83hg%2F6Q%2FSofew%3D%3D) no-repeat;
+  background-size: 100% 100%;
+}
+.show {
+  position: relative;
+  margin-left: 450px;
+  color: #0079c3;
+}
+.show .product {
+  position: absolute;
+  top: -64px;
+  left: -240px;
+  width: 200px;
+}
+.show .title {
+  font-size: 26px;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+.show .describe {
+  font-size: 20px;
+}
+.show .bar {
+  width: 90px;
+  height: 6px;
+  background: url(../images/bar.png?v=cCQj9kxxIph9rSDNRG1qoQ%3D%3D) no-repeat;
+  background-size: 100% 100%;
+  margin-top: 10px;
+}
+.show a {
+  display: inline-block;
+  width: 160px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  color: #fff;
+  margin-top: 60px;
+  margin-right: 40px;
+  background-color: #0079c3;
+  background: -webkit-gradient(linear, left top, right bottom, from(#0079c3), to(#469df2));
+  background: -webkit-linear-gradient(top left, #0079c3, #469df2);
+  background: -o-linear-gradient(top left, #0079c3, #469df2);
+  background: linear-gradient(to bottom right, #0079c3, #469df2);
+  border-radius: 4px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.show a:hover {
+  -webkit-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  transform: scale(1.08);
+}
+.two .show {
+  margin-left: 0;
+}
+.two .show .m-view {
+  width: 728px;
+}
+.two a {
+  width: 200px;
+  height: 100px;
+  vertical-align: top;
+  line-height: 1.8;
+  padding-top: 20px;
+  -webkit-transition: -webkit-transform 0.2s;
+  transition: -webkit-transform 0.2s;
+  -o-transition: transform 0.2s;
+  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
+}
+.two a:hover {
+  -webkit-transform: scale(1.08);
+  -ms-transform: scale(1.08);
+  transform: scale(1.08);
+}
+.two a .name {
+  font-size: 20px;
+}
+.two a .eg-name {
+  color: #bcbcbd;
+}
+.three .product {
+  position: absolute;
+  top: 140px;
+  left: initial;
+  right: 0;
+  width: 200px;
+}
+.three .show {
+  margin-left: 0;
+}
+.three .show .m-view {
+  position: relative;
+  width: 728px;
+}
+.three ul {
+  margin-top: 90px;
+}
+.three ul li {
+  font-size: 18px;
+  margin: 14px 0;
+  text-indent: 14px;
+}
+.three ul li span {
+  display: block;
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  background-color: #0079c3;
+  float: left;
+}

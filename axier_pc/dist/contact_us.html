@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="contact_us">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item ">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item on">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <template id="page" type="text/html">
+            <div class="page contact_us">
+                <div class="show">
+                    <img data-i18n="showSrc" src="./static/images/contact_us.jpg" width="100%">
+                </div>
+                <div class="title" data-i18n="title">联系我们</div>
+                <div class="introduction">
+                    <img src="./static/images/about_img7.jpg" width="800">
+                    <p><span class="bar"></span></p>
+                    <p data-i18n="introduction.p1">深圳市埃西尔电子有限公司</p>
+                    <p data-i18n="introduction.p2">地址：深圳市宝安区石岩街道环宇达工业区十栋</p>
+                </div>
+                <div class="box clearfix">
+                    <div class="title" data-i18n="boxTitle">联系方式</div>
+                    <div class="list">
+                        <div class="item">
+                            <h2 data-i18n="item1.title">公司总部</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item1.name">联系人：杨小姐</p>
+                            <p data-i18n="item1.phone">电话：0755-2783 1645</p>
+                            <p data-i18n="item1.email">邮箱：sales@ishare-cn.net</p>
+                            <p data-i18n="item1.address">地址：深圳市宝安区石岩街道环宇达工业区十栋</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item2.title">惠州办事处</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item2.name">联系人：蒋先生</p>
+                            <p data-i18n="item2.phone">电话：15217838985</p>
+                            <p data-i18n="item2.email">邮箱：jiangwei@ishare-cn.net</p>
+                            <p data-i18n="item2.address">地址：惠州市仲恺高新区陈江大道北49号</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item3.title">西南办事处</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item3.name">联系人：杨先生</p>
+                            <p data-i18n="item3.phone">电话：13618306768</p>
+                            <p data-i18n="item3.email">邮箱：chongqing@ishare-cn.net</p>
+                            <p data-i18n="item3.address">地址：重庆市渝北区余松一支路5号紫都星座A座</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item4.title">珠海办事处</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item4.name">联系人：王先生</p>
+                            <p data-i18n="item4.phone">电话：13536531837</p>
+                            <p data-i18n="item4.email">邮箱：majie@ersmt.net</p>
+                            <p data-i18n="item4.address">地址：珠海市金湾区小林实验小学旁新东68号</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item5.title">香港及海外办事处</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item5.name">联系人：何小姐</p>
+                            <p data-i18n="item5.phone">电话：18823387349</p>
+                            <p data-i18n="item5.email">邮箱：tinahe@ersmt.net</p>
+                            <p data-i18n="item5.address">地址： 香港中环德辅道中161-167号香港贸易中心3楼301-7A</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item6.title">印度分公司</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item6.name">联系人：陈先生</p>
+                            <p data-i18n="item6.phone">电话：15914119293</p>
+                            <p data-i18n="item6.email">邮箱：roy_chen@ishare-cn.net</p>
+                            <p data-i18n="item6.address">地址：印度泰米尔纳德邦金奈市</p>
+                        </div>
+                        <div class="item">
+                            <h2 data-i18n="item7.title">越南分公司</h2>
+                            <span class="bar"></span>
+                            <p data-i18n="item7.name">联系人：李先生</p>
+                            <p data-i18n="item7.phone">电话：0342165365 13049398786</p>
+                            <p data-i18n="item7.email">邮箱：sales@vietfic.com</p>
+                            <p data-i18n="item7.address">地址：越南北宁省北宁市大福坊平碳路141/12(109)</p>
+                            <p data-i18n="item7.address2">địa chỉ：141/12(109) Đường Bình Than -Phường Đại Phúc -Thành Phố Bắc Ninh -Tỉnh Bắc Ninh -Việt Nam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="on" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script>
+    $(function() {})
+</script>

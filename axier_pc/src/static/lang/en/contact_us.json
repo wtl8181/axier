@@ -1,0 +1,59 @@
+{
+  "showSrc":"./static/images/contact_us_en.jpg",
+  "title":"Contact Us",
+  "introduction":{
+    "p1":"Shenzhen Ishare Electronics Co.",
+    "p2":"LtdAddress: building 10, huanyuda industrial zone, chuangye road, shiyan street, baoan district, Shenzhen.China"
+  },
+  "boxTitle":"Office and contact information",
+  "item1":{
+    "title":"Company headquarters",
+    "name":"Contact person: Miss Yang",
+    "phone":"Tel: 0755-2783 1645",
+    "email":"Email: sales@ishare-cn.net",
+    "address":"Address: 10 buildings in Huanyuda Industrial Zone, Shiyan Street, Baoan District, Shenzhen City, China"
+  },
+  "item2":{
+    "title":"Huizhou Office",
+    "name":"Contact person: Mr.Jiang",
+    "phone":"Tel: 15217838985",
+    "email":"E-mail: jiangwei@ishare-cn.net",
+    "address":"Address: 49 North Chenjiang Avenue, Zhongkai High-tech Zone, Huizhou City, Guangdong Province, China"
+  },
+  "item3":{
+    "title":"Southwest China Office",
+    "name":"Contact person: Mr.Yang",
+    "phone":"Tel: 13618306768",
+    "email":"E-mail: chongqing@ishare-cn.net",
+    "address":"Address: Constellation A of Zidu, No. 5 Yusongyi Road, Yubei District, Chongqing, China"
+  },
+  "item4":{
+    "title":"Zhuhai Office",
+    "name":"Contact person: Mr.Wang",
+    "phone":"Tel: 13536531837",
+    "email":"Mailbox: majie@ersmt.net",
+    "address":"Address: No. 68 Xindong, Xiaolin Experimental Primary School, Jinwan District, Zhuhai, China"
+  },
+  "item5":{
+    "title":"Hong Kong and Overseas Offices",
+    "name":"Contact person: Miss He",
+    "phone":"Tel: 18823387349",
+    "email":"Mailbox: tinahe@ersmt.net",
+    "address":"Address: ROOM 301-7A, 3/F, HONGKONG TRADE CENTER, NO.161-167 DES VOEUX ROAD, CENTRAL HK"
+  },
+  "item6":{
+    "title":"India Branch",
+    "name":"Contact person: Mr.Chen",
+    "phone":"Tel: 15914119293",
+    "email":"E-mail: roy_chen@ishare-cn.net",
+    "address":"Address: Part C, B200, IndoSpace Industrial Park Oragadam I Phase II ， Oragadam，Sriperumbudur Taluk, Kanchipuram District, Chennai,  Tamil Nadu 631604"
+  },
+  "item7":{
+    "title":"Vietnam Branch",
+    "name":"Contact person: Mr.Li",
+    "phone":"Tel: 0342165365 13049398786",
+    "email":"Mailbox: sales@vietfic.com",
+    "address":"Address: 141/12 (109) PingCarbon Road, Dafufang, Beining City, Beining Province, Vietnam",
+    "addrees2":"địa chỉ：141/12(109) Đường Bình Than -Phường Đại Phúc -Thành Phố Bắc Ninh -Tỉnh Bắc Ninh -Việt Nam"
+  }
+}

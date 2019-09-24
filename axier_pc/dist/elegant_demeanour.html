@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="elegant_demeanour">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item on">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="on" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <script id="page" type="text/html">
+            <div class="page elegant_demeanour">
+      <div class="show">
+        <img data-i18n="showSrc" src="./static/images/show1.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">埃西尔人风采</div>
+      <div class="view">
+        <div class="introduction"></div>
+        <div class="activity">
+          <div class="past_activity clearfix"></div>
+          <div class="pagination m-style"></div>
+        </div>
+      </div>
+      <div class="activity_info" style="display:none;">
+        <div class="past_activity_info clearfix"></div>
+        <div class="pagination m-style"></div>
+      </div>
+    </div>
+  </script>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="on" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+        <script id="introduction" type="text/html">
+            <img src="@{data.cover}" width="800">
+      <p>@{data.title}</p>
+      <p>@{data.info}</p>
+    </div>
+  </script>
+        <script id="past_activity" type="text/html">
+            @{each data as value index}
+      <div class="item" data-albumId="@{value.albumId}">
+        <div class="img">
+          <img src="@{value.cover}" width="100%" height="100%">
+        </div>
+        <span class="title">@{value.title}</span>
+      </div>
+    @{/each}
+  </script>
+        <script id="past_activity_info" type="text/html">
+            @{each data as value index}
+      <div class="item" data-albumId="@{data.albumId}">
+        <div class="img">
+          <img src="@{value.url}" width="100%" height="100%">
+        </div>
+        <span class="title">@{value.title}</span>
+      </div>
+    @{/each}
+  </script>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script>
+    $(function() {
+        renderHtml('footer', {}, "#app")
+        $(document).on("click", ".past_activity .item", function() {
+            var albumId = $(this).attr('data-albumId')
+            api.getElegantDemeanorPicLIst(albumId, 1, 4, function(data) {
+                var html = template('past_activity_info', {
+                    data: data.rows,
+                    albumId: albumId
+                })
+                $(".activity_info").show();
+                pageCount = Math.ceil(data.total / 4);
+                $(".past_activity_info").html(html)
+                $(".view").hide();
+                $('.activity_info .pagination').pagination({
+                    pageCount: pageCount,
+                    jump: false,
+                    coping: true,
+                    homePage: '首页',
+                    endPage: '末页',
+                    prevCls: 'prev',
+                    nextCls: 'next',
+                    prevContent: '上一页',
+                    nextContent: '下一页',
+                    callback: function(page) {
+                        api.getElegantDemeanorPicLIst(albumId, page.getCurrent(), 4, function(data) {
+                            var html = template('past_activity_info', {
+                                data: data.rows,
+                                albumId: albumId
+                            })
+                            $(".past_activity_info").html(html)
+                        })
+                    }
+                });
+            })
+        })
+        api.getElegantDemeanorTop(function(data) {
+            var introduction = template("introduction", {
+                data: data.rows[0]
+            })
+            $(".introduction").html(introduction)
+        })
+        api.getElegantDemeanorList(1, 6, function(data) {
+            var html = template("past_activity", {
+                    data: data.rows
+                }),
+                pageCount = Math.ceil(data.total / 6);
+            $(".past_activity").html(html)
+            $('.activity .pagination').pagination({
+                pageCount: pageCount,
+                jump: false,
+                coping: true,
+                homePage: '首页',
+                endPage: '末页',
+                prevCls: 'prev',
+                nextCls: 'next',
+                prevContent: '上一页',
+                nextContent: '下一页',
+                callback: function(page) {
+                    api.getElegantDemeanorList(page.getCurrent(), 6, function(data) {
+                        var html = template("past_activity", {
+                            data: data.rows
+                        });
+                        $(".past_activity").html(html)
+                    })
+                }
+            });
+        })
+    })
+</script>

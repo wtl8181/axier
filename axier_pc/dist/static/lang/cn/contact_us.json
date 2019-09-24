@@ -1,0 +1,59 @@
+{
+  "showSrc":"./static/images/contact_us.jpg",
+  "title":"联系我们",
+  "introduction":{
+    "p1":"深圳市埃西尔电子有限公司",
+    "p2":"地址：深圳市宝安区石岩街道环宇达工业区十栋"
+  },
+  "boxTitle":"联系方式",
+  "item1":{
+    "title":"公司总部",
+    "name":"联系人：杨小姐",
+    "phone":"电话：0755-2783 1645",
+    "email":"邮箱：sales@ishare-cn.net",
+    "address":"地址：深圳市宝安区石岩街道环宇达工业区十栋"
+  },
+  "item2":{
+    "title":"惠州办事处",
+    "name":"联系人：蒋先生",
+    "phone":"电话：15217838985",
+    "email":"邮箱：jiangwei@ishare-cn.net",
+    "address":"地址：惠州市仲恺高新区陈江大道北49号"
+  },
+  "item3":{
+    "title":"西南办事处",
+    "name":"联系人：杨先生",
+    "phone":"电话：13618306768",
+    "email":"邮箱：chongqing@ishare-cn.net",
+    "address":"地址：重庆市渝北区余松一支路5号紫都星座A座"
+  },
+  "item4":{
+    "title":"珠海办事处",
+    "name":"联系人：王先生",
+    "phone":"电话：13536531837",
+    "email":"邮箱：majie@ersmt.net",
+    "address":"地址：珠海市金湾区小林实验小学旁新东68号"
+  },
+  "item5":{
+    "title":"香港及海外办事处",
+    "name":"联系人：何小姐",
+    "phone":"电话：18823387349",
+    "email":"邮箱：tinahe@ersmt.net",
+    "address":"地址： 香港中环德辅道中161-167号香港贸易中心3楼301-7A"
+  },
+  "item6":{
+    "title":"印度分公司",
+    "name":"联系人：陈先生",
+    "phone":"电话：15914119293",
+    "email":"邮箱：roy_chen@ishare-cn.net",
+    "address":"地址：印度泰米尔纳德邦金奈市"
+  },
+  "item7":{
+    "title":"越南分公司",
+    "name":"联系人：李先生",
+    "phone":"电话：0342165365 13049398786",
+    "email":"邮箱：sales@vietfic.com",
+    "address":"地址：越南北宁省北宁市大福坊平碳路141/12(109)",
+    "addrees2":"địa chỉ：141/12(109) Đường Bình Than -Phường Đại Phúc -Thành Phố Bắc Ninh -Tỉnh Bắc Ninh -Việt Nam "
+  }
+}

@@ -1,0 +1,73 @@
+<template id="header" type="text/html">
+  <header class="header">
+    <div class="logo">
+      <a href="./index.html"></a>
+    </div>
+    <div class="nav clearfix">
+      <div class="item {{(selectMenu == 'about_us' || selectMenu == 'elegant_demeanour' || selectMenu =='business' || selectMenu =='honor' || selectMenu =='public_welfare') ? 'on':''}}">
+        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+        <ul class="drop-menu">
+          <li class="">
+            <a class="{{(selectMenu == 'about_us') ? 'on':''}}" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'elegant_demeanour') ? 'on':''}}" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'business') ? 'on':''}}" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'honor') ? 'on':''}}" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+          </li>
+          <!-- <li>
+            <a class="{{(selectMenu == 'public_welfare') ? 'on':''}}" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+        </ul>
+      </div>
+      <div class="item {{(selectMenu == 'product_center' || selectMenu ==  'equipment' || selectMenu ==  'accessories') ? 'on':''}}">
+        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+        <ul class="drop-menu">
+          <li>
+            <a class="{{(selectMenu == 'product_center') ? 'on':''}}" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'equipment') ? 'on':''}}" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'accessories') ? 'on':''}}" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+          </li>
+        </ul>
+      </div>
+      <div class="item {{(selectMenu == 'service_center' || selectMenu ==  'development' || selectMenu == 'lease') ? 'on':''}}">
+        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+        <ul class="drop-menu">
+          <li>
+            <a class="{{(selectMenu == 'service_center') ? 'on':''}}" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'intelligent_manufacturing') ? 'on':''}}" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'development') ? 'on':''}}" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+          </li>
+          <li>
+            <a class="{{(selectMenu == 'lease') ? 'on':''}}" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+          </li>
+        </ul>
+      </div>
+      <div class="item {{(selectMenu == 'company_news') ? 'on':''}}">
+        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+      </div>
+      <div class="item {{(selectMenu == 'contact_us') ? 'on':''}}">
+        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+      </div>
+      <div class="item {{(selectMenu == 'join_us') ? 'on':''}}">
+        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+      </div>
+    </div>
+    <div class="language">
+      <a href="javascript:;" data-lang="en">EN</a>/
+      <a href="javascript:;" data-lang="cn">中文</a>
+    </div>
+  </header>
+</template>

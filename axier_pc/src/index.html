@@ -1,0 +1,94 @@
+<% var pageName = 'index' %>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/{{pageName}}.css">
+</Component>
+<body>
+  <div id="app" data-page-name="{{pageName}}">
+    <Component 
+      src="./template/header.html"
+      selectMenu="{{pageName}}">
+    </Component>
+    <template id="page" type="text/html">
+      <div class="page">
+        <div id="dowebok">
+          <div class="section one">
+            <div class="show">
+              <div class="product">
+                <img src="./static/images/product1.png" width="100%">
+              </div>
+              <p class="title">关于我们</p>
+              <p class="describe">紧跟时代拥抱未来与您共同携手展望未来共创辉煌</p>
+              <div class="bar"></div>
+              <a href="about_us.html">认识埃西尔</a>
+              <a href="company_news.html">埃西尔人风采</a>
+            </div>
+            <div class="down"></div>
+          </div>
+          <div class="section two">
+            <div class="show">
+              <div class="m-view m-auto">
+                <p class="title">产品中心</p>
+                <p class="describe">埃西尔自动化设备中国自动化设备供应商之一提供高品质产品</p>
+                <div class="bar"></div>
+                <a href="product_center.html">
+                  <p class="name">自动化设备</p>
+                  <p class="eg-name">Automation equipment</p>
+                </a>
+                <a href="equipment.html">
+                  <p class="name">贴片设备</p>
+                  <p class="eg-name">Panasonic Products</p>
+                </a>
+                <a href="accessories.html">
+                  <p class="name">部品配件</p>
+                  <p class="eg-name">PMS system</p>
+                </a>
+              </div>
+            </div>
+            <div class="down"></div>
+          </div>
+          <div class="section three">
+            <div class="show">
+              <div class="m-view m-auto">
+                <div class="product">
+                  <img src="./static/images/product2.png" width="100%">
+                </div>
+                <p class="title">服务中心</p>
+                <p class="describe">埃西尔自动化设备中国自动化设备供应商之一提供高品质产品</p>
+                <div class="bar"></div>
+                <ul>
+                  <li><span></span>技术人员服务</li>
+                  <li><span></span>智能嵌入式工厂</li>
+                  <li><span></span>软件定制服务</li>
+                  <li><span></span>设备租赁服务</li>
+                </ul>
+              </div>
+            </div>
+            <div class="down"></div>
+          </div>
+          <div class="section four fp-auto-height"></div>
+        </div>
+      </div>
+    </template>
+  </div>
+</body>
+<Component 
+src="./template/footer.html"
+selectMenu="{{pageName}}">
+</Component>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script>
+  $(function(){
+    $('#dowebok').fullpage({
+        // sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90'],
+        navigation: true,
+        navigationPosition:'right'
+        // verticalCentered:false
+      });
+      renderHtml('footer',{},".four .fp-tableCell")
+  })
+</script>

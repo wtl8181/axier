@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="service_center">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item ">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item on">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="on" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <template id="page" type="text/html">
+            <div class="page service_center">
+                <div class="show">
+                    <img src="./static/images/about_bg1.jpg" width="100%">
+                </div>
+                <div class="title" data-i18n="title">服务中心</div>
+                <div style="background-color:#f4f4f4;padding: 60px 0;">
+                    <div class="product_box clearfix">
+                        <div class="aside">
+                            <ul class="first_nav">
+                                <li class="on" data-nav="nav1">
+                                    <a href="./service_center.html"><span data-i18n="navList[0][0]">技术人员服务</span><span class="right menu-down"></span></a>
+                                    <ul class="inner_nav">
+                                        <li class="on"><span data-i18n="navList[0][1]">精益化生产方案</span></li>
+                                        <li>
+                                            <!-- <span data-i18n="navList[0][2]">智能嵌入式工厂</span> -->
+                                        </li>
+                                        <li><span data-i18n="navList[0][3]">SMT AI 服务</span></li>
+                                    </ul>
+                                </li>
+                                <li data-nav="nav2">
+                                    <a href="./intelligent_manufacturing.html"><span data-i18n="navList[0][2]">智能嵌入式工厂</span></a>
+                                </li>
+                                <li data-nav="nav2">
+                                    <a href="./development.html"><span data-i18n="navList[1][0]">研发定制服务</span><span class="right"></span></a>
+                                </li>
+                                <li data-nav="nav3">
+                                    <a href="./lease.html"><span data-i18n="navList[2][0]">设备租赁服务</span><span class="right"></span></a>
+                                    <ul class="inner_nav hide">
+                                        <li><span>客户案例</span></li>
+                                        <li><span>配置介绍</span></li>
+                                    </ul>
+                                </li>
+                                <li data-nav="nav4"><a href="./product_center.html"><span data-i18n="navList[3][0]">产品中心</span></a></li>
+                            </ul>
+                        </div>
+                        <div class="container"></div>
+                    </div>
+                </div>
+            </div>
+        </template>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="on" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script type="text/html" id="nav1-1">
+    <div class="content_box clearfix">
+    <!-- <div data-i18n="imgSrc[2]"></div> -->
+    <img src="./static/images/service_center/@{lang}/1-1.png" width="100%"/>
+    <img src="./static/images/service_center/@{lang}/1-2.png" width="100%"/>
+    <!-- <div class="content" style="padding:0;">
+      <img src="./static/images/s1.jpg" width="100%" height="100%">
+    </div>
+    <div class="content">
+      <h2 class="title">专业的工程师团队</h2>
+      <p>专业的工程师团队</p>
+      <p>-超过20名资深服务工程师</p>
+      <p>-超过25名驻场服务工程师</p>
+      <p>-超过5名程序工程师</p>
+      <p>-超过5名培训导师</p>
+      <p>为广大客户提供专业、优质、快捷的服务</p>
+    </div>
+    <div class="content">
+      <h2 class="title">完备的维修保养专用治具库存</h2>
+      <p>-保养调治工具的同时可以应对五个客户
+        大型维修保养公治的对应</p>
+    </div>
+    <div class="content">
+      <h2 class="title">强大的部品、配件后援团队</h2>
+      <p>-保养调治工具的同时可以应对五个客户
+        大型维修保养公治的对应</p>
+    </div>
+  </div>
+  <div class="img_box">
+    <div class="img">
+      <img src="./static/images/s2.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s3.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s4.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s5.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s6.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s7.jpg" width="100%" height="100%">
+    </div> -->
+  </div>
+</script>
+<script type="text/html" id="nav1-2">
+    <div class="content_box clearfix">
+      <img src="./static/images/service_center/@{lang}/2-1.png" width="100%"/>
+      <img src="./static/images/service_center/@{lang}/2-2.png" width="100%"/>
+      <!-- <div class="content" style="padding:0;">
+        <img src="./static/images/s1.jpg" width="100%" height="100%">
+      </div>
+      <div class="content">
+        <h2 class="title">专业的工程师团队</h2>
+        <p>专业的工程师团队</p>
+        <p>-超过20名资深服务工程师</p>
+        <p>-超过25名驻场服务工程师</p>
+        <p>-超过5名程序工程师</p>
+        <p>-超过5名培训导师</p>
+        <p>为广大客户提供专业、优质、快捷的服务</p>
+      </div>
+      <div class="content">
+        <h2 class="title">完备的维修保养专用治具库存</h2>
+        <p>-保养调治工具的同时可以应对五个客户
+          大型维修保养公治的对应</p>
+      </div>
+      <div class="content">
+        <h2 class="title">强大的部品、配件后援团队</h2>
+        <p>-保养调治工具的同时可以应对五个客户
+          大型维修保养公治的对应</p>
+      </div>
+    </div>
+    <div class="img_box">
+      <div class="img">
+        <img src="./static/images/s2.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s3.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s4.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s5.jpg" width="100%" height="100%">
+      </div>
+       <div class="img">
+        <img src="./static/images/s6.jpg" width="100%" height="100%">
+      </div>
+       <div class="img">
+        <img src="./static/images/s7.jpg" width="100%" height="100%">
+      </div> -->
+    </div>
+</script>
+<script type="text/html" id="nav1-3">
+    <div class="content_box clearfix">
+    <!-- <div class="img_box">
+      <div class="img">
+      <img src="./static/images/s2.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s3.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s4.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s5.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s6.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s7.jpg" width="100%" height="100%">
+    </div>
+    </div> -->
+    <img src="./static/images/service_center/@{lang}/3-1.png" width="100%"/>
+    <img src="./static/images/service_center/@{lang}/3-2.png" width="100%"/>
+  </div>
+</script>
+
+<script>
+    $(function() {
+        renderContainer(0, 'nav1')
+        $('.inner_nav > li').on('click', function() {
+            var index = $(this).index(),
+                navName = $(this).parent().parent().attr('data-nav');
+            $(this).addClass("on").siblings().removeClass("on");
+            renderContainer(index, navName)
+        })
+
+        function renderContainer(index, navName) {
+            var lang = window.localStorage.getItem('lang')
+            console.log(lang)
+            var html = template(navName + '-' + (index + 1), {
+                lang: lang
+            })
+            console.log(html)
+            $(".product_box").find(".container").html(html)
+        }
+    })
+</script>

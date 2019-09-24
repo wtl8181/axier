@@ -1,0 +1,54 @@
+<% var pageName = 'public_welfare'%>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img src="./static/images/show1.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">公益之路</div>
+      <div class="introduction">
+        <img src="./static/images/about_img6.jpg" width="800">
+        <p data-i18n="introduction.p1">深圳市埃西尔电子有限公司成立于2003年公司位于有“设计之都”、科技之城”美誉的深圳是中国自动化设备、SMT设备、AI设备、配件最大服务商之一，为客户提供先进的设备安装，培训生产支援深圳市埃西尔电子有限公司成立于2003年公司位于有“设计之都”、科技之城”美誉的深圳是中国自动化设备、SMT设备、AI设备、配件最大服务商之一，为客户提供先进的设备安装培训，生产支援</p>
+        <p data-i18n="introduction.p2">据了解，深圳市江西商会虽然只成立了短短的5年，但在各方面都取得了优异的成绩。会员企业中已有28家上市公司，展现了赣商精神和风貌，“人在特区，心系老区”。商会会员企业从投资到帮扶，累计在江西实际投资达630多亿元。深圳市江西商会不仅凝聚了江西在深圳的企业家，也用爱心凝聚了在深圳的150多万创业、务工和求学乡亲。</p>
+      </div>
+    </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script>
+$(function(){
+  var pageCount = 6;
+  $('.pagination').pagination({
+      pageCount: pageCount,
+      jump: false,
+      coping: true,
+      homePage: '首页',
+      endPage: '末页',
+      prevCls: 'prev', 
+      nextCls: 'next',
+      prevContent: '上一页', //涓婁竴椤靛唴瀹�
+      nextContent: '下一页', //涓嬩竴椤靛唴瀹�
+      callback: function (api) {
+        var current = api.getCurrent();
+      }
+  });
+})
+</script>

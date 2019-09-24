@@ -1,0 +1,103 @@
+<% var pageName = 'contact_us' %>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img data-i18n="showSrc" src="./static/images/contact_us.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">联系我们</div>
+      <div class="introduction">
+        <img src="./static/images/about_img7.jpg" width="800">
+        <p><span class="bar"></span></p>
+        <p data-i18n="introduction.p1">深圳市埃西尔电子有限公司</p>
+        <p data-i18n="introduction.p2">地址：深圳市宝安区石岩街道环宇达工业区十栋</p>
+      </div>
+      <div class="box clearfix">
+        <div class="title" data-i18n="boxTitle">联系方式</div>
+        <div class="list">
+          <div class="item">
+            <h2 data-i18n="item1.title">公司总部</h2>
+            <span class="bar"></span>
+            <p data-i18n="item1.name">联系人：杨小姐</p>
+            <p data-i18n="item1.phone">电话：0755-2783 1645</p>
+            <p data-i18n="item1.email">邮箱：sales@ishare-cn.net</p>
+            <p data-i18n="item1.address">地址：深圳市宝安区石岩街道环宇达工业区十栋</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item2.title">惠州办事处</h2>
+            <span class="bar"></span>
+            <p data-i18n="item2.name">联系人：蒋先生</p>
+            <p data-i18n="item2.phone">电话：15217838985</p>
+            <p data-i18n="item2.email">邮箱：jiangwei@ishare-cn.net</p>
+            <p data-i18n="item2.address">地址：惠州市仲恺高新区陈江大道北49号</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item3.title">西南办事处</h2>
+            <span class="bar"></span>
+            <p data-i18n="item3.name">联系人：杨先生</p>
+            <p data-i18n="item3.phone">电话：13618306768</p>
+            <p data-i18n="item3.email">邮箱：chongqing@ishare-cn.net</p>
+            <p data-i18n="item3.address">地址：重庆市渝北区余松一支路5号紫都星座A座</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item4.title">珠海办事处</h2>
+            <span class="bar"></span>
+            <p data-i18n="item4.name">联系人：王先生</p>
+            <p data-i18n="item4.phone">电话：13536531837</p>
+            <p data-i18n="item4.email">邮箱：majie@ersmt.net</p>
+            <p data-i18n="item4.address">地址：珠海市金湾区小林实验小学旁新东68号</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item5.title">香港及海外办事处</h2>
+            <span class="bar"></span>
+            <p data-i18n="item5.name">联系人：何小姐</p>
+            <p data-i18n="item5.phone">电话：18823387349</p>
+            <p data-i18n="item5.email">邮箱：tinahe@ersmt.net</p>
+            <p data-i18n="item5.address">地址： 香港中环德辅道中161-167号香港贸易中心3楼301-7A</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item6.title">印度分公司</h2>
+            <span class="bar"></span>
+            <p data-i18n="item6.name">联系人：陈先生</p>
+            <p data-i18n="item6.phone">电话：15914119293</p>
+            <p data-i18n="item6.email">邮箱：roy_chen@ishare-cn.net</p>
+            <p data-i18n="item6.address">地址：印度泰米尔纳德邦金奈市</p>
+          </div>
+          <div class="item">
+            <h2 data-i18n="item7.title">越南分公司</h2>
+            <span class="bar"></span>
+            <p data-i18n="item7.name">联系人：李先生</p>
+            <p data-i18n="item7.phone">电话：0342165365 13049398786</p>
+            <p data-i18n="item7.email">邮箱：sales@vietfic.com</p>
+            <p data-i18n="item7.address">地址：越南北宁省北宁市大福坊平碳路141/12(109)</p>
+            <p data-i18n="item7.address2">địa chỉ：141/12(109) Đường Bình Than -Phường Đại Phúc -Thành Phố Bắc Ninh -Tỉnh Bắc Ninh -Việt Nam</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script>
+$(function(){
+
+})
+</script>

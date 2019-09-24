@@ -1,0 +1,30 @@
+{
+  "item1":{
+    "name":"ABOUT US",
+    "menu":["Know Ishare","Isharer Presence","Distribution of business","Honors","Road To Public Welfare"]
+  },
+  "item2":{
+    "name":"PRODUCT CENTER",
+    "menu":["Automatic Equipment","SMT Mounter","Component Parts"]
+  },
+  "item3":{
+    "name":"SERVICE CENTER",
+    "menu":["Technician Service","Intelligent Manufacturing","Customized R&D","Equipment Leasing"]
+  },
+  "item4":{
+    "name":"COMPANY NEWS"
+  },
+  "item5":{
+    "name":"CONTACT US"
+  },
+  "item6":{
+    "name":"JOIN US"
+  },
+  "info":[
+    "Shenzhen Ishare Electronics Co., Ltd. ",
+    "Address: Building 10,Huanyuda Industrial District,ShiyanChuangye Road,Shiyan Street,Baoan District,Shenzhen，China",
+    "Zip code: 518108",
+    "Telephone: 0755—2783 1645  27831685",
+    "Email address: sales@ishare-cn.net"
+  ]
+}

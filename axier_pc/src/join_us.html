@@ -1,0 +1,106 @@
+<% var pageName = 'join_us'%>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+        <div class="show">
+          <img data-i18n="showSrc" src="./static/images/join_us.jpg" width="100%">
+        </div>
+        <div class="title" data-i18n="title">加入我们</div>
+        <div class="join_form clearfix">
+          <form class="form_list">
+            <div class="form_item">
+              <label>姓名：</label>
+              <input name="name" type="text" placeholder="请输入您的姓名"/>
+            </div>
+            <div class="form_item">
+              <label>邮箱：</label>
+              <input name="email" type="text" placeholder="请输入您的邮箱"/>
+            </div>
+            <div class="form_item">
+              <label>电话：</label>
+              <input name="phone" type="number" placeholder="请输入您的电话"/>
+            </div>
+            <div class="form_item">
+              <label>申请职位：</label>
+              <input name="position" type="text" placeholder="请输入您的申请职位"/>
+            </div>
+            <div class="form_item" style="width:99%;">
+              <label>个人简介：</label>
+              <textarea name="introduction" placeholder="请输入您的个人简介"></textarea>
+            </div>
+            <div class="fl">
+              <p data-i18n="introduction.p1">深圳市埃西尔电子有限公司</p>
+              <p data-i18n="introduction.p2">地址：深圳市宝安区西乡街道固戍华丰第一科技园A栋</p>
+            </div>
+              <div class="send_btn"></div>
+          </form>
+          <div class="success_box">
+            <img src="./static/images/success_box.jpg" width="100%">
+          </div>
+        </div>
+      </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script>
+$(function(){
+  $('.form_list').validate({
+      rules:{
+        name:'required',
+        email:'required',
+        phone:'required',
+        position:'required',
+        introduction:'required'
+      },
+      messages:{
+        name:'姓名不能为空',
+        email:'邮箱不能为空',
+        phone:'电话不能为空',
+        position:'申请职位不能为空',
+        introduction:'个人简介不能为空'
+      },
+      onfocusout:function(element){
+        $(element).valid()
+      },
+      onkeyup:false,
+      errorPlacement:function(error, element){  
+        error.appendTo(element.parent());  
+      }
+    })
+
+  $('.send_btn').on('click',function(){
+    if($('.form_list').valid()){
+      var name = $("input[name='name']").val(),
+        email = $("input[name='email']").val(),
+        phone = $("input[name='phone']").val(),
+        position = $("input[name='position']").val(),
+        introduction = $("textarea[name='introduction']").val()
+        api.addJob(name,email,phone,position,introduction,function(data){
+          if(data.code == 0){
+            $(".form_list").hide();
+            $(".join_form").height(640)
+            $(".success_box").show();
+          }
+        })
+    }
+  })
+})
+</script>

@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <link rel="stylesheet" href="static/style/reset.cd1a287f.css" />
+    <link rel="stylesheet" href="static/style/header.d7adb441.css" />
+    <link rel="stylesheet" href="static/style/footer.04c66ec6.css" />
+
+    <link rel="stylesheet" href="static/style/inner.62739fd1.css" />
+
+    <link rel="stylesheet" href="static/style/jquery.fullPage.f93e02a0.css" />
+    <link rel="stylesheet" href="static/style/jquery.pagination.b6694ad0.css" />
+    <link rel="stylesheet" href="http://www.jq22.com/demo/jqzoom201801040045/style/jqzoom.css" />
+</head>
+<style>
+    /*jQzoom*/
+    .jqzoom {
+        border: 1px solid #BBB;
+        float: left;
+        position: relative;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    div.zoomdiv {
+        z-index: 999;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 200px;
+        height: 200px;
+        background: #ffffff;
+        border: 1px solid #CCCCCC;
+        display: none;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    div.jqZoomPup {
+        z-index: 999;
+        visibility: hidden;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #aaa;
+        background: #ffffff url(/images/shopping/zoomlens.gif) 50% top no-repeat;
+        opacity: 0.5;
+        -moz-opacity: 0.5;
+        -khtml-opacity: 0.5;
+        filter: alpha(Opacity=50);
+    }
+</style>
+
+<body>
+    <div id="app" data-page-name="equipment">
+        <template id="header" type="text/html">
+            <header class="header">
+                <div class="logo">
+                    <a href="./index.html"></a>
+                </div>
+                <div class="nav clearfix">
+                    <div class="item ">
+                        <a href="./about_us.html" data-i18n="item1.name">关于我们</a>
+                        <ul class="drop-menu">
+                            <li class="">
+                                <a class="" href="./about_us.html" data-i18n="item1.menu[0]">认识埃西尔</a>
+                            </li>
+                            <li>
+                                <a class="" href="./company_news.html" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                            </li>
+                            <li>
+                                <a class="" href="./business.html" data-i18n="item1.menu[2]">业务分布</a>
+                            </li>
+                            <li>
+                                <a class="" href="./honor.html" data-i18n="item1.menu[3]">荣誉资质</a>
+                            </li>
+                            <!-- <li>
+            <a class="" href="./public_welfare.html" data-i18n="item1.menu[4]">公益之路</a>
+          </li> -->
+                        </ul>
+                    </div>
+                    <div class="item on">
+                        <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./product_center.html" data-i18n="item2.menu[0]">自动化设备</a>
+                            </li>
+                            <li>
+                                <a class="on" href="./equipment.html" data-i18n="item2.menu[1]">贴片设备</a>
+                            </li>
+                            <li>
+                                <a class="" href="./accessories.html" data-i18n="item2.menu[2]">部品配件</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        <ul class="drop-menu">
+                            <li>
+                                <a class="" href="./service_center.html" data-i18n="item3.menu[0]">技术人员服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./intelligent_manufacturing.html" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                            </li>
+                            <li>
+                                <a class="" href="./development.html" data-i18n="item3.menu[2]">软件定制服务</a>
+                            </li>
+                            <li>
+                                <a class="" href="./lease.html" data-i18n="item3.menu[3]">设备租赁服务</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="item ">
+                        <a href="./company_news.html" data-i18n="item4.name">公司动态</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./contact_us.html" data-i18n="item5.name">联系我们</a>
+                    </div>
+                    <div class="item ">
+                        <a href="./join_us.html" data-i18n="item6.name">加入我们</a>
+                    </div>
+                </div>
+                <div class="language">
+                    <a href="javascript:;" data-lang="en">EN</a>/
+                    <a href="javascript:;" data-lang="cn">中文</a>
+                </div>
+            </header>
+        </template>
+        <template id="page" type="text/html">
+            <div class="page equipment">
+                <div class="show">
+                    <img data-i18n="showSrc" src="./static/images/show2.jpg" width="100%">
+                </div>
+                <div class="title" data-i18n="title">产品中心</div>
+                <!-- <div class="introduction">
+        
+      </div> -->
+                <div class="product_box clearfix">
+                    <div class="aside">
+                        <ul class="first_nav">
+                            <li data-id="2">
+                                <a href="./product_center.html?top">
+                                    <span data-i18n="nav1">自动化设备</span>
+                                    <span class="right"></span>
+                                </a>
+                                <ul class="inner_nav"></ul>
+                            </li>
+                            <li class="on" data-id="4">
+                                <a href="./equipment.html?top">
+                                    <span data-i18n="nav2">贴片设备</span>
+                                    <span class="right menu-down"></span>
+                                </a>
+                                <ul class="inner_nav"></ul>
+                            </li>
+                            <li data-id="5">
+                                <a href="./accessories.html?top">
+                                    <span data-i18n="nav3">部品配件</span>
+                                    <span class="right"></span>
+                                </a>
+                                <ul class="inner_nav"></ul>
+                            </li>
+                            <li data-id="2">
+                                <a href="./service_center.html">
+                                    <span data-i18n="nav4">服务中心</span>
+                                    <span class="right"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="container" style="text-align: center;">
+                        <div class="view"></div>
+                        <div class="pagination m-style"></div>
+                    </div>
+        </template>
+        <template id="footer" type="text/html">
+            <footer class="footer">
+                <div class="top clearfix">
+                    <ul>
+                        <li class="first">
+                            <a href="./about_us.html" data-json="@{data}" data-i18n="item1.name">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="./about_us.html" class="" data-i18n="item1.menu[0]">认识埃西尔</a>
+                        </li>
+                        <li>
+                            <a href="./company_news.html" class="" data-i18n="item1.menu[1]">埃西尔人风采</a>
+                        </li>
+                        <li>
+                            <a href="./business.html" class="" data-i18n="item1.menu[2]">业务分布</a>
+                        </li>
+                        <li>
+                            <a href="./honor.html" class="" data-i18n="item1.menu[3]">荣誉资质</a>
+                        </li>
+                        <!-- <li>
+          <a href="./public_welfare.html" class="" data-i18n="item1.menu[4]">公益之路</a>
+        </li> -->
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./product_center.html" data-i18n="item2.name">产品中心</a>
+                        </li>
+                        <li>
+                            <a href="./product_center.html" class="" data-i18n="item2.menu[0]">自动化设备</a>
+                        </li>
+                        <li>
+                            <a href="./equipment.html" class="on" data-i18n="item2.menu[1]">贴片设备</a>
+                        </li>
+                        <li>
+                            <a href="./accessories.html" class="" data-i18n="item2.menu[2]">部品配件</a>
+                        </li>
+                    </ul>
+                    <ul>
+                        <li class="first">
+                            <a href="./service_center.html" data-i18n="item3.name">服务中心</a>
+                        </li>
+                        <li>
+                            <a href="./service_center.html" class="" data-i18n="item3.menu[0]">技术人员服务</a>
+                        </li>
+                        <li>
+                            <a href="./intelligent_manufacturing.html" class="" data-i18n="item3.menu[1]">智能嵌入式工厂</a>
+                        </li>
+                        <li>
+                            <a href="./development.html" class="" data-i18n="item3.menu[2]">软件定制服务</a>
+                        </li>
+                        <li>
+                            <a href="./lease.html" class="" data-i18n="item3.menu[3]">设备租赁服务</a>
+                        </li>
+                    </ul>
+                    <ul class="rl">
+                        <li class="first">
+                            <a href="./company_news.html" class="" data-i18n="item4.name">公司新闻</a>
+                        </li>
+                        <li class="first">
+                            <a href="./contact_us.html" class="" data-i18n="item5.name">联系我们</a>
+                        </li>
+                        <li class="first">
+                            <a href="./join_us.html" class="" data-i18n="item6.name">加入我们</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bottom">
+                    <ul>
+                        <li data-i18n="info[0]">深圳市埃西尔电子有限公司</li>
+                        <li data-i18n="info[1]">地址：深圳市宝安区石岩街道环宇达工业区十栋</li>
+                        <li data-i18n="info[2]">邮编：518108</li>
+                        <li data-i18n="info[3]">电话：0755—2783 1645 27831685</li>
+                        <li data-i18n="info[4]">传真：0755—27831701</li>
+                    </ul>
+                </div>
+            </footer>
+        </template>
+        <div class="dialog">
+            <div class="cover"></div>
+            <div class="wrap">
+                <div class="wrap-header">
+                    大图
+                    <span class="close rl"></span>
+                </div>
+                <div class="wrap-content">
+                    <div class="img fl">
+                        <img src="" width="100%" height="100%">
+                    </div>
+                    <div class="show fl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.4886159a.js"></script>
+<script src="static/js/template.ca0b234d.js"></script>
+<script src="static/js/util.ba4f7a3f.js"></script>
+<script src="static/js/jquery.fullPage.58000ff4.js"></script>
+<script src="static/js/jquery.pagination.e6473c64.js"></script>
+<script src="static/js/jquery.i18n.3600b16f.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.9fe54727.js"></script>
+<script src="static/js/moment.2c6da42f.js"></script>
+<script src="static/js/common.6f912c17.js"></script>
+<script src="static/js/api.7a242aee.js"></script>
+<script id="product_list" type="text/html">
+    <div class="list clearfix">
+    @{each data as value index}
+    <div class="item" data-json="@{value}">
+      <div class="img">
+        <img src="@{value.icon}" width="100%" height="100%">
+      </div>
+      <span class="title">
+        <em>@{value.goodsName}</em>
+      </span>
+    </div>
+    @{/each}
+  </div>
+</div>
+</script>
+<script id="product_detail" type="text/html">
+    <div class="product_detail">
+    <div class="container m-auto clearfix" style="width:640px;">
+      <div class="product_img">
+        <div class="img jqzoom">
+          <img src="@{data.icon}" jqimg="@{data.bigImg}" width="100%" height="100%"/>
+        </div>
+        <span class="title"><em>@{data.goodsName}</em></span>
+      </div>
+      @{if data.info}
+      <div class="info">
+        <h2 class="title">设备概念</h2>
+        <div class="content">
+          <div style="white-space: pre-wrap;">@{data.info}</div>
+        </div>
+      </div>
+      @{/if}
+      @{if data.advantage}
+      <div class="info">
+        <h2 class="title">产品优势</h2>
+        <div class="content">
+          <div style="white-space: pre-wrap;">@{data.advantage}</div>
+        </div>
+      </div>
+      @{/if}
+      <div class="parm_img">
+        <div class="info clearfix" style="width:100%;">
+          @{# data.detail}
+        </div>
+        @{if data.introPic}
+        <img src="@{data.introPic}" width="100%" height="100%">
+        @{/if}
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<script>
+    $(function() {
+        var activeIndex = 0
+        $(document).on('click', '.container .item', function() {
+            var obj = JSON.parse($(this).attr('data-json')),
+                html = template('product_detail', {
+                    data: obj
+                });
+            activeIndex = $(this).index()
+            $(".inner_nav li").eq(activeIndex).addClass('on').siblings().removeClass('on')
+            $(".container .view").html(html)
+            $(".jqzoom").jqueryzoom({
+                xzoom: 226, //放大图的宽度(默认是 200)
+                yzoom: 350, //放大图的高度(默认是 200)
+                offsetX: 10, //离原图的距离(默认是 10)
+                offsetY: 0, //离原图的距离(默认是 10)
+                position: "right" //放大图的定位(默认是 "right")
+            });
+        })
+        var pageCount = ''
+
+        function getProductList(id, fn) {
+            api.getProductList(id, 1, 9, function(data) {
+                var html = template('product_list', {
+                    data: data.rows
+                });
+                pageCount = Math.ceil(data.total / 9);
+                $(".container .view").html(html)
+                if (window.location.href.indexOf('top') > 0) {
+                    $(window).scrollTop(400)
+                }
+                fn(data)
+                $(".pagination").pagination({
+                    pageCount: pageCount,
+                    jump: false,
+                    coping: true,
+                    homePage: '首页',
+                    endPage: '末页',
+                    prevCls: 'prev',
+                    nextCls: 'next',
+                    prevContent: '上一页',
+                    nextContent: '下一页',
+                    isHide: true,
+                    callback: function(page) {
+                        api.getProductList(id, page.getCurrent(), 9, function(data) {
+                            var html = template('product_list', {
+                                data: data.rows
+                            });
+                            pageCount = Math.ceil(data.total / 9);
+                            $(".container .view").html(html)
+                        })
+                    }
+                });
+            })
+        }
+        var productList = ''
+        getProductList($(".first_nav .on").attr('data-id'), function(data) {
+            var html = ''
+            productList = data
+            data.rows.forEach(function(item, index) {
+                html += '<li data-index="' + index + '"><span>' + item.goodsName + '</span></li>'
+                $(".first_nav .on").find('.inner_nav').html(html)
+                console.log(html)
+            })
+        })
+        $(document).on("click", ".language a", function() {
+            window.langNum = (window.localStorage.getItem('lang') == 'cn') ? 1 : 2
+            getProductList($(".first_nav .on").attr('data-id'), function(data) {
+                var html = ''
+                productList = data
+                data.rows.forEach(function(item, index) {
+                    html += '<li data-index="' + index + '"><span>' + item.goodsName + '</span></li>'
+                    $(".first_nav .on").find('.inner_nav').html(html)
+                    console.log(html)
+                })
+            })
+        });
+        $(document).on('click', '.inner_nav li', function() {
+            $(this).addClass('on').siblings().removeClass('on');
+            var index = $(this).attr('data-index'),
+                detail = productList.rows[index]
+            activeIndex = $(this).index();
+            var html = template('product_detail', {
+                data: detail
+            });
+            $(".container .view").html(html)
+            $(".jqzoom").jqueryzoom({
+                xzoom: 226, //放大图的宽度(默认是 200)
+                yzoom: 350, //放大图的高度(默认是 200)
+                offsetX: 10, //离原图的距离(默认是 10)
+                offsetY: 0, //离原图的距离(默认是 10)
+                position: "right" //放大图的定位(默认是 "right")
+            });
+        })
+        $(document).on('click', '.jqzoom', function() {
+            var info = $(this).parent().parent().children(".info").clone(),
+                bigImg = $(this).children('img').attr('jqimg')
+            $(".dialog").find(".wrap-content").find("img").attr("src", bigImg)
+            $(".dialog").find(".wrap-content").find(".show").html(info)
+            $(".dialog").fadeIn()
+        })
+        $(document).on("click", '.dialog .close', function() {
+            $(".dialog").fadeOut()
+        })
+    })
+</script>

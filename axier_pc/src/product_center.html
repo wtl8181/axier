@@ -1,0 +1,228 @@
+<% var pageName = 'product_center' %>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img data-i18n="showSrc" src="./static/images/show2.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">产品中心</div>
+      <div class="product_box clearfix">
+        <div class="aside">
+          <ul class="first_nav">
+            <li class="on" data-id="2">
+              <a href="./product_center.html">
+                <span data-i18n="nav1">自动化设备</span>
+                <span class="right menu-down"></span>
+              </a>
+              <ul class="inner_nav"></ul>
+            </li>
+            <li data-id="4">
+              <a href="./equipment.html?top">
+                <span data-i18n="nav2">贴片设备</span>
+                <span class="right"></span>
+              </a>
+            </li>
+            <li data-id="5"><a href="./accessories.html?top">
+              <span data-i18n="nav3">部品配件</span>
+              <span class="right"></span></a>
+            </li>
+            <li data-id="2"><a href="./service_center.html?top">
+              <span data-i18n="nav4">服务中心</span>
+            </a></li>
+          </ul>
+        </div>
+        <div class="container" style="text-align: center;">
+          <div class="view"></div>
+          <div class="pagination m-style"></div>
+        </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <div class="dialog">
+    <div class="cover"></div>
+    <div class="wrap">
+      <div class="wrap-header">
+        大图
+        <span class="close rl"></span>
+      </div>
+      <div class="wrap-content">
+        <div class="img fl">
+          <img src="" width="100%" height="100%">
+        </div>
+        <div class="show fl"></div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script id="product_list" type="text/html">
+  <div class="list clearfix">
+    @{each data as value index}
+    <div class="item" data-json="@{value}">
+      <div class="img">
+        <img src="@{value.icon}" width="100%" height="100%">
+      </div>
+      <span class="title">
+        <em>
+          @{value.goodsName}
+        </em>
+      </span>
+    </div>
+    @{/each}
+  </div>
+</div>
+</script>
+<script id="product_detail" type="text/html">
+  <div class="product_detail">
+    <div class="container m-auto clearfix" style="width:640px;">
+      <div class="product_img">
+        <div class="img jqzoom">
+          <img src="@{data.icon}" jqimg="@{data.bigImg}" width="100%" height="100%"/>
+        </div>
+        <span class="title"><em>@{data.goodsName}</em></span>
+      </div>
+      @{if data.info}
+      <div class="info">
+        <h2 class="title">设备概念</h2>
+        <div class="content">
+          <div style="white-space: pre-wrap;">@{data.info}</div>
+        </div>
+      </div>
+      @{/if}
+      @{if data.advantage}
+      <div class="info">
+        <h2 class="title">产品优势</h2>
+        <div class="content">
+          <div style="white-space: pre-wrap;">@{data.advantage}</div>
+        </div>
+      </div>
+      @{/if}
+      <div class="parm_img">
+        <div class="info clearfix" style="width:100%;">
+          @{# data.detail}
+        </div>
+        <!-- @{if data.introPic}
+        <img src="@{data.introPic}" width="100%" height="100%">
+        @{/if} -->
+      </div>
+    </div>
+  </div>
+</div>
+</script>
+<script>
+$(function(){
+  var activeIndex = 0
+  $(document).on('click','.container .item',function(){
+    var obj = JSON.parse($(this).attr('data-json')),
+        html = template('product_detail',{data:obj});
+        activeIndex = $(this).index()
+        $(".inner_nav li").eq(activeIndex).addClass('on').siblings().removeClass('on')
+        $(".container .view").html(html)
+        $(".jqzoom").jqueryzoom({
+          xzoom: 226, //放大图的宽度(默认是 200)
+          yzoom: 350, //放大图的高度(默认是 200)
+          offsetX: 10, //离原图的距离(默认是 10)
+          offsetY: 0, //离原图的距离(默认是 10)
+          position: "right" //放大图的定位(默认是 "right")
+        });
+  })
+  var pageCount = ''
+  function getProductList(id,fn){
+    api.getProductList(id,1,9,function(data){
+      var html = template('product_list',{data:data.rows});
+      pageCount = Math.ceil(data.total/9);
+      $(".container .view").html(html)
+      if(window.location.href.indexOf('top') > 0){
+        $(window).scrollTop(400)
+      }
+      fn(data)
+      $(".pagination").pagination({
+          pageCount: pageCount,
+          jump: false,
+          coping: true,
+          homePage: '首页',
+          endPage: '末页',
+          prevCls: 'prev', 
+          nextCls: 'next',
+          prevContent: '上一页', 
+          nextContent: '下一页', 
+          isHide:true,
+          callback: function (page) {
+            api.getProductList(id,page.getCurrent(),9,function(data){
+              var html = template('product_list',{data:data.rows});
+              pageCount = Math.ceil(data.total/9);
+              $(".container .view").html(html)
+            })
+          }
+      });
+    })
+  }
+
+  var productList = ''
+  getProductList($(".first_nav .on").attr('data-id'),function(data){
+    var html = ''
+        productList = data
+    data.rows.forEach(function(item,index){
+      html += '<li data-index="'+index+'"><span>'+item.goodsName+'</span></li>'
+      $(".first_nav .on").find('.inner_nav').html(html)
+    })
+  })
+  
+  $(document).on("click",".language a",function(){
+    window.langNum = (window.localStorage.getItem('lang') == 'cn') ? 1 : 2
+    getProductList($(".first_nav .on").attr('data-id'),function(data){
+      var html = ''
+          productList = data
+      data.rows.forEach(function(item,index){
+        html += '<li data-index="'+index+'"><span>'+item.goodsName+'</span></li>'
+        $(".first_nav .on").find('.inner_nav').html(html)
+      })
+    })
+  });
+  var detail = ''
+  $(document).on('click','.inner_nav li',function(){
+    $(this).addClass('on').siblings().removeClass('on');
+    var index = $(this).attr('data-index'),
+        detail = productList.rows[index]
+        activeIndex = $(this).index()
+    var html = template('product_detail',{data:detail});
+        $(".container .view").html(html)
+        $(".jqzoom").jqueryzoom({
+          xzoom: 226, //放大图的宽度(默认是 200)
+          yzoom: 350, //放大图的高度(默认是 200)
+          offsetX: 10, //离原图的距离(默认是 10)
+          offsetY: 0, //离原图的距离(默认是 10)
+          position: "right" //放大图的定位(默认是 "right")
+      //     preload: 1
+        });
+  })
+  
+  $(document).on('click','.jqzoom',function(){
+    var info = $(this).parent().parent().children(".info").clone(),
+        bigImg = $(this).children('img').attr('jqimg')
+    $(".dialog").find(".wrap-content").find("img").attr("src",bigImg)
+    $(".dialog").find(".wrap-content").find(".show").html(info)
+    $(".dialog").fadeIn()
+  })
+
+  $(document).on("click",'.dialog .close',function(){
+    $(".dialog").fadeOut()
+  })
+})
+</script>

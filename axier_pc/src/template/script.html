@@ -1,0 +1,18 @@
+<script src="https://libs.baidu.com/jquery/1.7.2/jquery.min.js"></script>
+<script src="static/js/jquery.jqzoom.js"></script>
+<script src="static/js/template.js"></script>
+<script src="static/js/util.js"></script>
+<script src="static/js/jquery.fullPage.js"></script>
+<script src="static/js/jquery.pagination.js"></script>
+<script src="static/js/jquery.i18n.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/i18next/8.1.0/i18next.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18next/1.2.0/jquery-i18next.min.js" ></script> -->
+<script src="static/js/jquery.validate.js"></script>
+<script src="static/js/moment.js"></script>
+<script src="static/js/common.js"></script>
+<script src="static/js/api.js"></script>
+{{if script}}
+  {{each script.split(',') value i}}
+    <script src="{{value}}"></script>
+  {{/each}}
+{{/if}}

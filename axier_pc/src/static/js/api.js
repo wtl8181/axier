@@ -1,0 +1,44 @@
+window.baseUrl = 'http://47.106.223.37:8090/'
+window.langNum = (window.localStorage.getItem('lang') == 'cn') ? 1 : 2
+window.api = {
+  getProductList:function(menuId,pageNum,pageSize,fn){
+    $.get(baseUrl+'api/goods/list?menuId='+menuId+'&pageNum='+pageNum+'&pageSize='+pageSize+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  },
+  addJob:function(name,email,phone,position,introduction,fn){
+    $.get(baseUrl+'api/table/add?userName='+name+'&mail='+email+'&phone='+phone+'&job='+position+'&info='+introduction,function(data){
+      fn(data)
+    })
+  },
+  getElegantDemeanorList:function(pageNum,pageSize,fn){
+    $.get(baseUrl+'/api/album/list?top=0&pageNum='+pageNum+'&pageSize='+pageSize+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  },
+  getElegantDemeanorTop:function(fn){
+    $.get(baseUrl+'/api/album/list?top=1'+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  },
+  getNewsList:function(menuId,pageNum,pageSize,fn){
+    $.get(baseUrl+'api/article/list?menuId='+menuId+'&pageNum='+pageNum+'&pageSize='+pageSize+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  },
+  getNewsTop:function(fn){
+    $.get(baseUrl+'api/article/list?menuId=3&top=1'+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  },
+  getPageNum:function(articleId,fn){
+    $.get(baseUrl+'api/article/index?menuId=3&articleId='+articleId,function(data){
+      fn(data)
+    })
+  },
+  getElegantDemeanorPicLIst:function(albumId,pageNum,pageSize,fn){
+    $.get(baseUrl+'api/img/list?albumId='+albumId+'&pageNum='+pageNum+'&pageSize='+pageSize+'&lang='+langNum,function(data){
+      fn(data)
+    })
+  }
+}

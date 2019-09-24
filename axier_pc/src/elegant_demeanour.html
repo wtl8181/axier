@@ -1,0 +1,126 @@
+<% var pageName = 'elegant_demeanour'%>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <script id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img data-i18n="showSrc" src="./static/images/show1.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">埃西尔人风采</div>
+      <div class="view">
+        <div class="introduction"></div>
+        <div class="activity">
+          <div class="past_activity clearfix"></div>
+          <div class="pagination m-style"></div>
+        </div>
+      </div>
+      <div class="activity_info" style="display:none;">
+        <div class="past_activity_info clearfix"></div>
+        <div class="pagination m-style"></div>
+      </div>
+    </div>
+  </script>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <script id="introduction" type="text/html">
+    <img src="@{data.cover}" width="800">
+      <p>@{data.title}</p>
+      <p>@{data.info}</p>
+    </div>
+  </script>
+  <script id="past_activity" type="text/html">
+    @{each data as value index}
+      <div class="item" data-albumId="@{value.albumId}">
+        <div class="img">
+          <img src="@{value.cover}" width="100%" height="100%">
+        </div>
+        <span class="title">@{value.title}</span>
+      </div>
+    @{/each}
+  </script>
+  <script id="past_activity_info" type="text/html">
+    @{each data as value index}
+      <div class="item" data-albumId="@{data.albumId}">
+        <div class="img">
+          <img src="@{value.url}" width="100%" height="100%">
+        </div>
+        <span class="title">@{value.title}</span>
+      </div>
+    @{/each}
+  </script>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script>
+$(function(){
+  renderHtml('footer',{},"#app")
+  $(document).on("click",".past_activity .item",function(){
+    var albumId = $(this).attr('data-albumId')
+        api.getElegantDemeanorPicLIst(albumId,1,4,function(data){
+          var html = template('past_activity_info',{data:data.rows,albumId:albumId})
+          $(".activity_info").show();
+          pageCount = Math.ceil(data.total/4);
+          $(".past_activity_info").html(html)
+          $(".view").hide();
+          $('.activity_info .pagination').pagination({
+              pageCount: pageCount,
+              jump: false,
+              coping: true,
+              homePage: '首页',
+              endPage: '末页',
+              prevCls: 'prev', 
+              nextCls: 'next',
+              prevContent: '上一页', 
+              nextContent: '下一页', 
+              callback: function (page) {
+                api.getElegantDemeanorPicLIst(albumId,page.getCurrent(),4,function(data){
+                  var html = template('past_activity_info',{data:data.rows,albumId:albumId})
+                  $(".past_activity_info").html(html)
+                })
+              }
+          });
+        })
+  })
+  api.getElegantDemeanorTop(function(data){
+    var introduction = template("introduction",{data:data.rows[0]})
+    $(".introduction").html(introduction)
+  })
+
+  api.getElegantDemeanorList(1,6,function(data){
+    var html = template("past_activity",{data:data.rows}),
+    pageCount = Math.ceil(data.total/6);
+    $(".past_activity").html(html)
+    $('.activity .pagination').pagination({
+        pageCount: pageCount,
+        jump: false,
+        coping: true,
+        homePage: '首页',
+        endPage: '末页',
+        prevCls: 'prev', 
+        nextCls: 'next',
+        prevContent: '上一页', 
+        nextContent: '下一页', 
+        callback: function (page) {
+          api.getElegantDemeanorList(page.getCurrent(),6,function(data){
+            var html = template("past_activity",{data:data.rows});
+            $(".past_activity").html(html)
+          })
+        }
+    });
+  })
+})
+</script>

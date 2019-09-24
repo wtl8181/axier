@@ -1,0 +1,82 @@
+#app {
+  margin: 0 auto;
+}
+.header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  height: 76px;
+  line-height: 76px;
+  color: #fff;
+  background-color: #0079c3;
+  z-index: 9990;
+}
+.header div {
+  height: 100%;
+  float: left;
+}
+.header .logo {
+  width: 180px;
+  background: url(../images/logo.png?v=8g6lA1c00AywszFFPJ0i8g%3D%3D) no-repeat;
+  background-size: 160px auto;
+  background-position: 10px 25px;
+  background-color: #fff;
+}
+.header .logo a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.header .nav {
+  position: absolute;
+  left: 180px;
+  right: 120px;
+}
+.header .nav .item {
+  position: relative;
+  width: 16.66%;
+  font-size: 16px;
+  float: left;
+  border-right: 1px solid;
+}
+.header .nav .item.on {
+  background-color: #a0d9f6;
+}
+.header .nav .item:hover {
+  background-color: #a0d9f6;
+}
+.header .nav .item:hover .drop-menu {
+  display: block;
+}
+.header .nav .item .drop-menu {
+  display: none;
+  position: absolute;
+  left: -50px;
+  width: 160%;
+  padding: 30px 0;
+  background-color: #a0d9f6;
+}
+.header .nav .item .drop-menu li {
+  line-height: 1.8;
+}
+.header .nav .item .drop-menu li a:hover {
+  color: #0079c3;
+}
+.header .nav .item .drop-menu li a.on {
+  color: #0079c3;
+}
+.header .nav .item > a {
+  display: block;
+}
+.header .language {
+  position: absolute;
+  right: 0;
+  width: 120px;
+}
+.header .language a:hover {
+  color: #a0d9f6;
+}
+.header .language a.on {
+  color: #a0d9f6;
+}

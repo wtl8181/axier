@@ -1,0 +1,12 @@
+{
+  "showSrc":"./static/images/show1_en.jpg",
+  "title":"Know Ishare",
+  "video":"./static/video/about_us_en",
+  "introduction":[
+    "Shenzhen Ishare Electronics Co., Ltd. was founded in 2003, has been committed to providing customers with the highest quality PCBA intelligent manufacturing related services. With professional technical team and excellent quality of service, the company has been in a state of high speed development and has become increasingly influential in the industry. Business throughout China, the United States, Mexico, Japan, India, Vietnam, Thailand, Malaysia, Singapore and other countries.",
+    "At present, the company has automatic sales, non-standard automation, laser processing and research, intelligent embedded factory, equipment sales and leasing, placement machine maintenance and transformation business. To become the PCBA global supply chain integrated service provider, to provide the most professional services for domestic and foreign customers and create a global one-stop service platform for PCBA intelligent manufacturing.",
+    "The company advocates integrity, initiative, flexibility, innovation, solidarity and solidarity, and provides continuous energy for the rapid development of the company.",
+    "In 2017, in the joint efforts of isharers, each department to carry out their duties, to overcome the large capacity, large capacity laser engraving plate, the whole plant assembly project, to solve the difficult problems of customers, won the trust of customers! I believe in the coming days, isharers will encourage, make greater contributions to the customers and society!"
+  ],
+  "cartListSrc":["./static/images/1_en.png","./static/images/2_en.png","./static/images/3_en.png","./static/images/4_en.png"]
+}

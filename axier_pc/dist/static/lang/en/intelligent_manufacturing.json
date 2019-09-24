@@ -1,0 +1,17 @@
+{
+  "title":"Technician service",
+  "navList":[
+    ["Technician Service","Lean Production Scheme","Intelligent Manufacturing","SMT AI Service"],
+    ["Customized R&D","MES customization development"],
+    ["Equipment Leasing","Sales,Rental,Whole Line"],
+    ["Product Center"]
+  ],
+  "imgSrc":[
+    "./static/images/service_center/en/1-1.png",
+    "./static/images/service_center/en/1-2.png",
+    "./static/images/service_center/en/2-1.png",
+    "./static/images/service_center/en/2-1.png",
+    "./static/images/service_center/en/3-1.png",
+    "./static/images/service_center/en/3-1.png"
+  ]
+}

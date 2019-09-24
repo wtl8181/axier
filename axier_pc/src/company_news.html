@@ -1,0 +1,244 @@
+<% var pageName = 'company_news' %>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img data-i18n="showSrc" src="./static/images/company_news.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">公司新闻</div>
+      <!-- <div class="introduction">
+        
+      </div> -->
+      <div class="news">
+        <div class="news_show clearfix"></div>
+        <div class="news_box">
+          <div class="list clearfix"></div>
+          <div class="pagination m-style"></div>
+        </div>
+      </div>
+      <div class="news_detail"></div>
+    </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script id="news_top" type="text/html">
+  <div class="img">
+    <img src="@{data.cover}" width="100%" height="100%">
+  </div>
+  <div class="info">
+    <h2 class="title">
+      @{data.title}
+    </h2>
+    <div class="bar"></div>
+    <div class="content">
+      @{data.info}
+      <a class="show_info" data-detail="@{data.detail}" data-articleId="@{data.articleId}">详情</a>
+    </div>
+  </div>
+</script>
+<script id="news_list" type="text/html">
+  @{each data as value index}
+  <div class="item" data-detail="@{value.detail}" data-articleId="@{value.articleId}">
+    <div class="img">
+      <img src="@{value.cover}" width="100%" height="200">
+    </div>
+    <div class="date">
+      <span>@{value.creatTime}</span>
+      <div class="bar"></div>
+    </div>
+    <div class="info">
+      <div class="title">@{value.title}</div>
+      <div class="content">@{value.info}</div>
+    </div>
+  </div>
+  @{/each}
+</script>
+<script id="news_detail" type="text/html">
+  <div class="view">
+    @{# detail}
+  </div>
+  <div class="controls clearfix">
+    @{if nextArticleId - prevArticleId == 2 || nextArticleId == total}
+    <div class="btn previous" data-articleId="@{prevArticleId}">上一篇：@{prevTitle}</div>
+    @{/if}
+    @{if nextArticleId - prevArticleId == 2 || prevArticleId == 1}
+    <div class="btn next" data-articleId="@{nextArticleId}">下一篇：@{nextTitle}</div>
+    @{/if}
+    <div class="back">返回列表</div>
+  </div>
+</script>
+<script>
+$(function(){
+  $(".first_nav > li > span").on('click',function(){
+    var inner_nav = $(this).parent().find('.inner_nav');
+        inner_nav.toggleClass("hide")
+  })
+
+  var currentPageNum = '',articleId = '',detail = '',total = ''
+  $(document).on('click','.news_box .item',function(){
+    detail = $(this).attr('data-detail');
+    articleId = $(this).attr('data-articleId')
+    // getNewsDetail(detail)
+    // $(".news_detail").show()
+    api.getPageNum(articleId,function(data){
+      currentPageNum = data.rows[0]
+      var prevTitle = '',nextTitle = '',prevArticleId = '',nextArticleId = ''
+      api.getNewsList(3,currentPageNum-1,1,function(data){
+        prevTitle = data.rows[0].title,
+        prevArticleId = data.rows[0].articleId
+        api.getNewsList(3,currentPageNum+1,1,function(data){
+          nextTitle = data.rows[0].title
+          nextArticleId = data.rows[0].articleId
+          // console.log(prevArticleId,nextArticleId)
+          getNewsDetail(detail,prevTitle,nextTitle,prevArticleId,nextArticleId,data.total)
+        })
+      })
+    })
+  })
+
+  $(document).on("click",".news_detail .back",function(){
+    $(".news").show();
+    $(".news_detail").hide()
+  })
+
+  $(document).on("click",".news_detail .previous",function(){
+    currentPageNum = currentPageNum - 1
+    var articleId = $(this).attr('data-articleId')
+    api.getPageNum(articleId,function(data){
+      currentPageNum = data.rows[0]
+      var prevTitle = '',nextTitle = '',prevArticleId = '',nextArticleId = ''
+      api.getNewsList(3,currentPageNum,1,function(currentData){
+        api.getNewsList(3,currentPageNum-1,1,function(data){
+          prevTitle = data.rows[0].title,
+          prevArticleId = data.rows[0].articleId
+          detail = data.rows[0].detail
+          api.getNewsList(3,currentPageNum+1,1,function(data){
+            nextTitle = data.rows[0].title
+            nextArticleId = data.rows[0].articleId
+            detail = currentData.rows[0].detail
+            // console.log(prevArticleId,nextArticleId)
+            getNewsDetail(detail,prevTitle,nextTitle,prevArticleId,nextArticleId,data.total)
+          })
+        })
+      })
+    })
+    $(".news_detail").show()
+  })
+  
+  $(document).on("click",".news_show .show_info",function(){
+    var articleId = $(this).attr('data-articleId'),
+        detail = $(this).attr('data-detail');
+    api.getPageNum(articleId,function(data){
+      currentPageNum = data.rows[0]
+      var prevTitle = '',nextTitle = '',prevArticleId = '',nextArticleId = ''
+      api.getNewsList(3,currentPageNum-1,1,function(data){
+        prevTitle = data.rows[0].title,
+        prevArticleId = data.rows[0].articleId
+        detail = data.rows[0].detail
+        api.getNewsList(3,currentPageNum+1,1,function(data){
+          nextTitle = data.rows[0].title
+          nextArticleId = data.rows[0].articleId
+          // console.log(prevArticleId,nextArticleId)
+          getNewsDetail(detail,prevTitle,nextTitle,prevArticleId,nextArticleId,data.total)
+        })
+      })
+    })
+    $(".news_detail").show()
+  })
+
+  $(document).on("click",".news_detail .next",function(){
+    currentPageNum = currentPageNum + 1
+    var articleId = $(this).attr('data-articleId')
+    api.getPageNum(articleId,function(data){
+      currentPageNum = data.rows[0]
+      var prevTitle = '',nextTitle = '',prevArticleId = '',nextArticleId = ''
+      api.getNewsList(3,currentPageNum,1,function(currentData){
+        api.getNewsList(3,currentPageNum-1,1,function(data){
+          prevTitle = data.rows[0].title,
+          prevArticleId = data.rows[0].articleId
+          api.getNewsList(3,currentPageNum+1,1,function(data){
+            nextTitle = data.rows[0].title
+            nextArticleId = data.rows[0].articleId
+            detail = currentData.rows[0].detail
+            console.log(detail)
+            getNewsDetail(detail,prevTitle,nextTitle,prevArticleId,nextArticleId,data.total)
+          })
+        })
+      })
+    })
+    $(".news_detail").show()
+  })
+
+  function getNewsTop(){
+    api.getNewsTop(function(data){
+      var html = template("news_top",{data:data.rows[0]})
+      $(".news_show").html(html)
+    })
+  }
+  getNewsTop()
+
+  function getNewsList(){
+    api.getNewsList(3,1,4,function(data){
+      data.rows.forEach(function(item,index){
+        data.rows[index].creatTime = moment(item.creatTime).format("MM/DD")
+        console.log(moment(item.creatTime).format("MM/DD"))
+      })
+      var html = template('news_list',{data:data.rows}),
+          total = data.total
+      pageCount = Math.ceil(data.total/4);
+      $(".news_box .list").html(html)
+      $('.pagination').pagination({
+          pageCount: pageCount,
+          jump: false,
+          coping: true,
+          homePage: '首页',
+          endPage: '末页',
+          prevCls: 'prev', 
+          nextCls: 'next',
+          prevContent: '上一页', 
+          nextContent: '下一页', 
+          callback: function (page) {
+            var current = page.getCurrent();
+            api.getNewsList(3,current,4,function(data){
+            data.rows.forEach(function(item,index){
+              data.rows[index].creatTime = moment(item.creatTime).format("MM/DD")
+              console.log(moment(item.creatTime).format("MM/DD"))
+            })
+            var html = template('news_list',{data:data.rows})
+            $(".news_box .list").html(html)
+          })
+        }
+      });
+      if(pageCount == 1){
+        $(".pagination").hide();
+      }
+    })
+  }
+  getNewsList();
+
+  function getNewsDetail(detail,prevTitle,nextTitle,prevArticleId,nextArticleId,total){
+    console.log(prevArticleId,nextArticleId)
+    var html = template('news_detail',{detail:detail,prevTitle:prevTitle,nextTitle:nextTitle,prevArticleId:prevArticleId,nextArticleId:nextArticleId,total:total})
+    $(".news").hide();
+    $(".news_detail").html(html).show()
+  }
+})
+</script>

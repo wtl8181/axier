@@ -1,0 +1,23 @@
+{
+  "item1":{
+    "name":"ABOUT US",
+    "menu":["Know Ishare","Isharer Presence","Distribution of business","Honors","Road To Public Welfare"]
+  },
+  "item2":{
+    "name":"PRODUCT CENTER",
+    "menu":["Automatic Equipment","SMT Mounter","Component Parts"]
+  },
+  "item3":{
+    "name":"SERVICE CENTER",
+    "menu":["Technician Service","Intelligent Manufacturing","Customized R&D","Equipment Leasing"]
+  },
+  "item4":{
+    "name":"COMPANY NEWS"
+  },
+  "item5":{
+    "name":"CONTACT US"
+  },
+  "item6":{
+    "name":"JOIN US"
+  }
+}

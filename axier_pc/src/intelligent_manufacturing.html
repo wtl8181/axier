@@ -1,0 +1,206 @@
+<% var pageName = 'intelligent_manufacturing' %>
+<Component 
+  src="./template/head.html"
+  title="{{webTitle}}"
+  link="static/style/inner.css">
+</Component>
+<body>
+<div id="app" data-page-name="{{pageName}}">
+  <Component 
+    src="./template/header.html"
+    selectMenu="{{pageName}}">
+  </Component>
+  <template id="page" type="text/html">
+    <div class="page {{pageName}}">
+      <div class="show">
+        <img src="./static/images/about_bg1.jpg" width="100%">
+      </div>
+      <div class="title" data-i18n="title">服务中心</div>
+      <div style="background-color:#f4f4f4;padding: 60px 0;">
+        <div class="product_box clearfix">
+          <div class="aside">
+            <ul class="first_nav">
+              <li data-nav="nav1">
+                <a href="./service_center.html"><span data-i18n="navList[0][0]">技术人员服务</span><span class="right"></span></a>
+                <ul class="inner_nav hide">
+                  <li><span data-i18n="navList[0][1]">精益化生产方案</span></li>
+                  <li>
+                      <!-- <span data-i18n="navList[0][2]">智能嵌入式工厂</span> -->
+                  </li>
+                  <li><span data-i18n="navList[0][3]">SMT AI 服务</span></li>
+                </ul>
+              </li>
+              <li class="on" data-nav="nav5">
+                <a href="./intelligent_manufacturing.html"><span data-i18n="navList[0][2]">智能嵌入式工厂</span></a>
+              </li>
+              <li data-nav="nav2">
+                <a href="./development.html"><span data-i18n="navList[1][0]">软件定制服务</span><span class="right"></span></a>
+              </li>
+              <li data-nav="nav3">
+                <a href="./lease.html"><span data-i18n="navList[2][0]">设备租赁服务</span><span class="right"></span></a>
+                <ul class="inner_nav hide">
+                  <li><span>客户案例</span></li>
+                  <li><span>配置介绍</span></li>
+                </ul>
+              </li>
+              <li data-nav="nav4"><a href="./product_center.html"><span data-i18n="navList[3][0]">产品中心</span></a></li>
+            </ul>
+          </div>
+          <div class="container"></div>
+        </div>
+      </div>
+    </div>
+  </template>
+  <Component 
+    src="./template/footer.html"
+    selectMenu="{{pageName}}">
+  </Component>
+</div>
+</body>
+<Component 
+  src="./template/script.html"
+  script="">
+</Component>
+<script type="text/html" id="nav1-1">
+  <div class="content_box clearfix">
+    <!-- <div data-i18n="imgSrc[2]"></div> -->
+    <img src="./static/images/service_center/@{lang}/1-1.png" width="100%"/>
+    <img src="./static/images/service_center/@{lang}/1-2.png" width="100%"/>
+    <!-- <div class="content" style="padding:0;">
+      <img src="./static/images/s1.jpg" width="100%" height="100%">
+    </div>
+    <div class="content">
+      <h2 class="title">专业的工程师团队</h2>
+      <p>专业的工程师团队</p>
+      <p>-超过20名资深服务工程师</p>
+      <p>-超过25名驻场服务工程师</p>
+      <p>-超过5名程序工程师</p>
+      <p>-超过5名培训导师</p>
+      <p>为广大客户提供专业、优质、快捷的服务</p>
+    </div>
+    <div class="content">
+      <h2 class="title">完备的维修保养专用治具库存</h2>
+      <p>-保养调治工具的同时可以应对五个客户
+        大型维修保养公治的对应</p>
+    </div>
+    <div class="content">
+      <h2 class="title">强大的部品、配件后援团队</h2>
+      <p>-保养调治工具的同时可以应对五个客户
+        大型维修保养公治的对应</p>
+    </div>
+  </div>
+  <div class="img_box">
+    <div class="img">
+      <img src="./static/images/s2.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s3.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s4.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s5.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s6.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s7.jpg" width="100%" height="100%">
+    </div> -->
+  </div>
+</script>
+<script type="text/html" id="nav1-2">
+  <div class="content_box clearfix">
+      <img src="./static/images/service_center/@{lang}/2-1.png" width="100%"/>
+      <img src="./static/images/service_center/@{lang}/2-2.png" width="100%"/>
+      <!-- <div class="content" style="padding:0;">
+        <img src="./static/images/s1.jpg" width="100%" height="100%">
+      </div>
+      <div class="content">
+        <h2 class="title">专业的工程师团队</h2>
+        <p>专业的工程师团队</p>
+        <p>-超过20名资深服务工程师</p>
+        <p>-超过25名驻场服务工程师</p>
+        <p>-超过5名程序工程师</p>
+        <p>-超过5名培训导师</p>
+        <p>为广大客户提供专业、优质、快捷的服务</p>
+      </div>
+      <div class="content">
+        <h2 class="title">完备的维修保养专用治具库存</h2>
+        <p>-保养调治工具的同时可以应对五个客户
+          大型维修保养公治的对应</p>
+      </div>
+      <div class="content">
+        <h2 class="title">强大的部品、配件后援团队</h2>
+        <p>-保养调治工具的同时可以应对五个客户
+          大型维修保养公治的对应</p>
+      </div>
+    </div>
+    <div class="img_box">
+      <div class="img">
+        <img src="./static/images/s2.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s3.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s4.jpg" width="100%" height="100%">
+      </div>
+      <div class="img">
+        <img src="./static/images/s5.jpg" width="100%" height="100%">
+      </div>
+       <div class="img">
+        <img src="./static/images/s6.jpg" width="100%" height="100%">
+      </div>
+       <div class="img">
+        <img src="./static/images/s7.jpg" width="100%" height="100%">
+      </div> -->
+    </div>
+</script>
+<script type="text/html" id="nav1-3">
+  <div class="content_box clearfix">
+    <!-- <div class="img_box">
+      <div class="img">
+      <img src="./static/images/s2.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s3.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s4.jpg" width="100%" height="100%">
+    </div>
+    <div class="img">
+      <img src="./static/images/s5.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s6.jpg" width="100%" height="100%">
+    </div>
+     <div class="img">
+      <img src="./static/images/s7.jpg" width="100%" height="100%">
+    </div>
+    </div> -->
+    <img src="./static/images/service_center/@{lang}/3-1.png" width="100%"/>
+    <img src="./static/images/service_center/@{lang}/3-2.png" width="100%"/>
+  </div>
+</script>
+
+<script>
+$(function(){
+  renderContainer(1,'nav1')
+  $('.inner_nav > li').on('click',function(){
+    var index = $(this).index(),
+        navName = $(this).parent().parent().attr('data-nav');
+        $(this).addClass("on").siblings().removeClass("on");
+        renderContainer(index,navName)
+  })
+
+  function renderContainer(index, navName){
+      var lang = window.localStorage.getItem('lang')
+      console.log(lang)
+      var html = template(navName+'-'+(index+1),{lang:lang})
+      console.log(html)
+      $(".product_box").find(".container").html(html)
+  }
+})
+</script>
